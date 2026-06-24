@@ -86,7 +86,7 @@ st.subheader("🔮 Customer Churn Prediction")
 
 tenure = st.slider("Tenure Months", 0, 72, 12)
 monthly_charges = st.number_input(
-    "Monthly Charges",
+    "MonthlyCharges",
     min_value=0.0,
     max_value=200.0,
     value=70.0
@@ -109,10 +109,10 @@ if st.button("Predict Churn"):
     if "Tenure Months" in model_columns:
         input_data.at[0, "Tenure Months"] = tenure
 
-    if "Monthly Charges" in model_columns:
-        input_data.at[0, "Monthly Charges"] = monthly_charges
+    if "MonthlyCharges" in model_columns:
+        input_data.at[0, "MonthlyCharges"] = monthly_charges
 
-    if "Total Charges" in model_columns:
+    if "TotalCharges" in model_columns:
         input_data.at[0, "Total Charges"] = total_charges
 
     prediction = model.predict(input_data)[0]
